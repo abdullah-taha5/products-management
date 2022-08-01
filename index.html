@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- CDN Font awesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+      integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <!-- Main files Bootstrap -->
+    <link rel="stylesheet" href="./css/bootstrap.min.css" />
+    <!-- Main Files CSS -->
+    <link rel="stylesheet" href="./css/style.css" />
+    <title>Products Management System</title>
+  </head>
+  <body>
+    <div class="crud container text-center">
+      <div class="head p-4">
+        <h2>CRUDS</h2>
+        <p>Products Management System</p>
+      </div>
+      <div class="inputs">
+        <input
+          type="text"
+          class="form-control"
+          id="title"
+          placeholder="Title"
+        />
+        <div class="price d-flex my-4">
+          <input
+            type="number"
+            class="form-control me-3"
+            id="price"
+            placeholder="price"
+            onkeyup="getTotal()"
+          />
+          <input
+            type="number"
+            class="form-control me-3"
+            id="taxes"
+            placeholder="taxes"
+            onkeyup="getTotal()"
+          />
+          <input
+            type="number"
+            class="form-control me-3"
+            id="ads"
+            placeholder="ads"
+            onkeyup="getTotal()"
+          />
+          <input
+            type="number"
+            class="form-control me-3"
+            id="discount"
+            placeholder="discount"
+            onkeyup="getTotal()"
+          />
+          <small id="total" class="bg-warning text-light p-2 fs-6 text"
+            >0</small
+          >
+        </div>
+        <input
+          type="number"
+          class="form-control"
+          id="count"
+          placeholder="count"
+        />
+        <input
+          type="text"
+          class="form-control my-4"
+          id="category"
+          placeholder="category"
+        />
+        <button
+          type="button"
+          class="btn btn-block btn-primary"
+          style="width: 100%"
+          id="submit"
+        >
+          Create
+        </button>
+      </div>
+      <div class="outputs">
+        <div class="search-block">
+          <input
+            class="form-control my-4"
+            id="search"
+            type="search"
+            placeholder="Search"
+            onkeyup="searchData(this.value)"
+          />
+          <div class="btns-search d-flex justify-content-between px-5">
+            <button
+              type="button"
+              class="btn btn-success"
+              id="search-title"
+              onclick="getSearchMood(this.id)"
+            >
+              Search By Title
+            </button>
+            <button
+              type="button"
+              class="btn btn-success"
+              id="search-category"
+              onclick="getSearchMood(this.id)"
+            >
+              Search By Category
+            </button>
+          </div>
+        </div>
+        <div id="delete-all"></div>
+        <div class="table-parent">
+          <table class="table my-5">
+            <thead>
+              <tr>
+                <th scope="col">id</th>
+                <th scope="col">title</th>
+                <th scope="col">price</th>
+                <th scope="col">taxes</th>
+                <th scope="col">ads</th>
+                <th scope="col">discount</th>
+                <th scope="col">total</th>
+                <th scope="col">category</th>
+                <th scope="col">update</th>
+                <th scope="col">delete</th>
+              </tr>
+            </thead>
+            <tbody id="tbody"></tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+    <!-- scroll Top -->
+    <div class="scroll-btn">
+      <i class="fa fa-angle-double-up"></i>
+    </div>
+    <!-- JavaScript -->
+    <script src="./js/main.js"></script>
+  </body>
+</html>
